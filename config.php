@@ -1,5 +1,5 @@
 <?php
-/* db_pdo1 v1.0  @Shinjia  #2022/07/19 */
+/* db_pdo v1.0  @Shinjia  #2022/07/17 */
 
 // 資料庫連接的重要參數
 define('DB_SERVERIP', 'localhost');

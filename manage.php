@@ -1,4 +1,6 @@
 <?php
+/* db_pdo v1.0  @Shinjia  #2022/07/17 */
+
 include 'config.php';
 include 'utility.php';
 
