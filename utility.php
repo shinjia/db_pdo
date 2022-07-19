@@ -1,5 +1,5 @@
 <?php
-/* db_pdo1 v1.0  @Shinjia  #2022/07/17 */
+/* db_pdo1 v1.0  @Shinjia  #2022/07/19 */
 
 function error_message($type='', $ext='')
 {

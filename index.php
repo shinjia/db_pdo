@@ -1,5 +1,5 @@
 <?php
-/* db_pdo1 v1.0  @Shinjia  #2022/07/17 */
+/* db_pdo1 v1.0  @Shinjia  #2022/07/19 */
 
 $html = <<< HEREDOC
 <h2>資料管理系統 db_pdo1 v1.0</h2>
