@@ -17,7 +17,7 @@ function pagemake($content='', $head='')
 
 <div class="container">
     <div id="header">
-        <h1>後台資料庫管理</h1>
+        <h1>後台資料庫管理 db_pdo</h1>
     </div>
     
     <div id="nav">     

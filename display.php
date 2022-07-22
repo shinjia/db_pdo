@@ -1,5 +1,5 @@
 <?php
-/* db_pdo v1.0  @Shinjia  #2022/07/17 */
+/* db_pdo v1.0  @Shinjia  #2022/07/22 */
 
 include 'config.php';
 include 'utility.php';
@@ -45,15 +45,13 @@ try {
             <tr><th>備註</th><td>{$remark}</td></tr>
         </table>
 HEREDOC;
-
-        // 網頁內容
-        $ihc_content = <<< HEREDOC
-        {$data}
-HEREDOC;
     }
     else {
-        $ihc_content = '<p class="center">查不到相關記錄！</p>';
+        $data = '<p class="center">查不到相關記錄！</p>';
     }
+	
+	// 網頁內容
+	$ihc_data = $data;
 }
 catch(PDOException $e) {
     // db_error(ERROR_QUERY, $e->getMessage());
