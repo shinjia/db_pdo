@@ -1,5 +1,5 @@
 <?php
-/* db_pdo v1.0  @Shinjia  #2022/07/17 */
+/* db_pdo v1.0  @Shinjia  #2022/07/23 */
 
 // 資料庫連接的重要參數
 define('DB_SERVERIP', 'localhost');
@@ -11,7 +11,7 @@ define('DB_DATABASE', 'class');
 define('DB_SOURCE', 'mysql:host='.DB_SERVERIP.';dbname='.DB_DATABASE);
 
 // 關於字元的設定參數
-define('SET_CHARACTER', 'set character set utf8');   // utf8或big5或此列加註移除
+define('SET_CHARACTER', 'set character set utf8mb4');   // utf8或big5或此列加註移除
 define('CHARSET', 'utf8');   // utf8或此列加註移除 (此用於PHP 5.0.5以上)
 
 // 關於錯誤訊息的文字
