@@ -51,7 +51,7 @@ HEREDOC;
     }
 	
 	// 網頁內容
-	$ihc_data = $data;
+	$ihc_content = $data;
 }
 catch(PDOException $e) {
     // db_error(ERROR_QUERY, $e->getMessage());
