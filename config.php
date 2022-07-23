@@ -28,7 +28,7 @@ function db_open()
    try {
       $pdo = new PDO(DB_SOURCE, DB_USERNAME, DB_PASSWORD);
       if(defined('SET_CHARACTER')) $pdo->query(SET_CHARACTER);
-      // 指定 PD O錯誤模式和錯誤處理
+      // 指定 PDO 錯誤模式和錯誤處理
       $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
    } catch (PDOException $e) { db_error('ERROR_DBSOURCE', $e->getMessage()); } 
       
