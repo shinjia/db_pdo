@@ -1,5 +1,5 @@
 <?php
-/* db_pdo v1.0  @Shinjia  #2022/07/17 */
+/* db_pdo v1.0  @Shinjia  #2022/07/28 */
 
 include 'config.php';
 include 'utility.php';
@@ -33,20 +33,21 @@ $sth->bindParam(':uid'     , $uid     , PDO::PARAM_INT);
 
 // 執行 SQL
 try { 
-   $sth->execute();
+    $sth->execute();
 
-   $lnk_display = "display.php?uid=" . $uid;
-   header('Location: ' . $lnk_display);
+    $lnk_display = "display.php?uid=" . $uid;
+    header('Location: ' . $lnk_display);
+    exit;
 }
 catch(PDOException $e) {
-   // db_error(ERROR_QUERY, $e->getMessage());
-   $ihc_error = error_message('ERROR_QUERY', $e->getMessage());
-   
-   $html = <<< HEREDOC
-   {$ihc_error}
+    // db_error(ERROR_QUERY, $e->getMessage());
+    $ihc_error = error_message('ERROR_QUERY', $e->getMessage());
+    
+    $html = <<< HEREDOC
+    {$ihc_error}
 HEREDOC;
-   include 'pagemake.php';
-   pagemake($html);
+    include 'pagemake.php';
+    pagemake($html);
 }
 
 db_close();

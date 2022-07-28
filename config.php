@@ -25,33 +25,33 @@ define('ERROR_DBSOURCE' , 'DB source error.');  // 無法連接 DB_SOURCE(PDO)
 
 function db_open()
 {
-   try {
-      $pdo = new PDO(DB_SOURCE, DB_USERNAME, DB_PASSWORD);
-      if(defined('SET_CHARACTER')) $pdo->query(SET_CHARACTER);
-      // 指定 PDO 錯誤模式和錯誤處理
-      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-   } catch (PDOException $e) { db_error('ERROR_DBSOURCE', $e->getMessage()); } 
-      
-   return $pdo;
+    try {
+        $pdo = new PDO(DB_SOURCE, DB_USERNAME, DB_PASSWORD);
+        if(defined('SET_CHARACTER')) $pdo->query(SET_CHARACTER);
+        // 指定 PDO 錯誤模式和錯誤處理
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) { db_error('ERROR_DBSOURCE', $e->getMessage()); } 
+        
+    return $pdo;
 }
 
 function db_close()
 {
-   // Do nothing
+    // Do nothing
 }
 
 function db_error($type='', $ext='')
 {
-   $is_debug = true;  // 是否顯示系統捕捉的錯訊訊息
+    $is_debug = true;  // 是否顯示系統捕捉的錯訊訊息
 
-   $msg = '<h2>DB Error! </h2>';
-   $msg .= '<p>' . $type . '</p>';
+    $msg = '<h2>DB Error! </h2>';
+    $msg .= '<p>' . $type . '</p>';
 
-   if($is_debug)
-   {
-      $msg .= '<p>' . $ext . '</p>';
-   }
-   
-   die($msg);
+    if($is_debug)
+    {
+        $msg .= '<p>' . $ext . '</p>';
+    }
+    
+    die($msg);
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-/* db_pdo v1.0  @Shinjia  #2022/07/17 */
+/* db_pdo v1.0  @Shinjia  #2022/07/28 */
 
 include 'config.php';
 include 'utility.php';
@@ -17,7 +17,22 @@ $remark   = isset($_POST['remark'])   ? $_POST['remark']   : '';
 $pdo = db_open();
 
 // SQL 語法
-$sqlstr = "INSERT INTO person(usercode, username, address, birthday, height, weight, remark) VALUES (:usercode, :username, :address, :birthday, :height, :weight, :remark)";
+$sqlstr = "INSERT INTO person(
+    usercode,
+    username,
+    address,
+    birthday,
+    height,
+    weight,
+    remark) 
+VALUES (
+    :usercode,
+    :username,
+    :address,
+    :birthday,
+    :height,
+    :weight,
+    :remark) ";  // 注意最後的符號
 
 $sth = $pdo->prepare($sqlstr);
 $sth->bindParam(':usercode', $usercode, PDO::PARAM_STR);
@@ -30,21 +45,22 @@ $sth->bindParam(':remark'  , $remark  , PDO::PARAM_STR);
 
 // 執行 SQL
 try { 
-   $sth->execute();
+    $sth->execute();
 
-   $new_uid = $pdo->lastInsertId();    // 傳回剛才新增記錄的 auto_increment 的欄位值
-   $lnk_display = "display.php?uid=" . $new_uid;
-   header('Location: ' . $lnk_display);
+    $new_uid = $pdo->lastInsertId();    // 傳回剛才新增記錄的 auto_increment 的欄位值
+    $lnk_display = "display.php?uid=" . $new_uid;
+    header('Location: ' . $lnk_display);
+    exit;
 }
 catch(PDOException $e) {
-   // db_error(ERROR_QUERY, $e->getMessage());
-   $ihc_error = error_message('ERROR_QUERY', $e->getMessage());
-   
-   $html = <<< HEREDOC
-   {$ihc_error}
+    // db_error(ERROR_QUERY, $e->getMessage());
+    $ihc_error = error_message('ERROR_QUERY', $e->getMessage());
+    
+    $html = <<< HEREDOC
+    {$ihc_error}
 HEREDOC;
-   include 'pagemake.php';
-   pagemake($html);
+    include 'pagemake.php';
+    pagemake($html);
 }
 
 db_close();
