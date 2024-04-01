@@ -1,11 +1,10 @@
 <?php
-/* db_pdo v1.0  @Shinjia  #2022/07/22 */
 
 include 'config.php';
 include 'utility.php';
 
 // 接收傳入變數
-$uid = isset($_GET['uid']) ? $_GET['uid'] : 0;
+$uid = $_GET['uid'] ?? 0;
 
 // 網頁內容預設
 $ihc_content = '';

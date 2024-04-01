@@ -1,25 +1,24 @@
 <?php
-/* db_pdo v1.0  @Shinjia  #2022/07/28 */
 
 include 'config.php';
 include 'utility.php';
 
-$op  = isset($_GET['op']) ? $_GET['op'] : 'HOME';
-$uid = isset($_POST['uid']) ? $_POST['uid'] : (isset($_GET['uid'])?$_GET['uid']:'');
+$op  = $_GET['op'] ?? 'HOME';
+$uid = $_POST['uid'] ?? ($_GET['uid']??'');
 
-$code = isset($_GET['code']) ? $_GET['code'] : '';
+$code = $_GET['code'] ?? '';
 
-$usercode = isset($_POST['usercode']) ? $_POST['usercode'] : '';
-$username = isset($_POST['username']) ? $_POST['username'] : '';
-$address  = isset($_POST['address'])  ? $_POST['address']  : '';
-$birthday = isset($_POST['birthday']) ? $_POST['birthday'] : '';
-$height   = isset($_POST['height'])   ? $_POST['height']   : '';
-$weight   = isset($_POST['weight'])   ? $_POST['weight']   : '';
-$remark   = isset($_POST['remark'])   ? $_POST['remark']   : '';
+$usercode = $_POST['usercode'] ?? '';
+$username = $_POST['username'] ?? '';
+$address  = $_POST['address']  ?? '';
+$birthday = $_POST['birthday'] ?? '';
+$height   = $_POST['height']   ?? '';
+$weight   = $_POST['weight']   ?? '';
+$remark   = $_POST['remark']   ?? '';
 
 // 頁碼參數
-$page = isset($_GET['page']) ? $_GET['page'] : 1;   // 目前的頁碼
-$nump = isset($_GET['nump']) ? $_GET['nump'] : 10;   // 每頁的筆數
+$page = $_GET['page'] ??  1;   // 目前的頁碼
+$nump = $_GET['nump'] ?? 10;   // 每頁的筆數
 
 // 網頁內容預設
 $ihc_content = '';
@@ -33,8 +32,7 @@ $total_page = 0;
 $pdo = db_open();
 
 
-switch($op)
-{
+switch($op) {
     case 'LIST_PAGE' :
             $url_page = '?op=LIST_PAGE';
 

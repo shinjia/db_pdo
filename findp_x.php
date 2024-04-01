@@ -1,17 +1,15 @@
 <?php
-/* db_pdo v1.0  @Shinjia  #2022/07/17 */
-
 // 含分頁之資料列表
 
 include 'config.php';
 include 'utility.php';
 
 // 可接收 GET 及 POST 傳入
-$key = isset($_POST['key']) ? $_POST['key'] : (isset($_GET['key'])?$_GET['key']:'^$!@#');
+$key = $_POST['key'] ?? ($_GET['key']??'^$!@#');
 
 // 頁碼參數
-$page = isset($_GET['page']) ? $_GET['page'] : 1;   // 目前的頁碼
-$nump = isset($_GET['nump']) ? $_GET['nump'] : 10;   // 每頁的筆數
+$page = $_GET['page'] ??  1;   // 目前的頁碼
+$nump = $_GET['nump'] ?? 10;   // 每頁的筆數
 
 // 網頁內容預設
 $ihc_content = '';

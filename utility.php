@@ -1,8 +1,6 @@
 <?php
-/* db_pdo v1.0  @Shinjia  #2022/07/17 */
 
-function error_message($type='', $ext='')
-{
+function error_message($type='', $ext='') {
     $is_debug = true;
 
     $a_errmsg = array(
@@ -11,8 +9,7 @@ function error_message($type='', $ext='')
 
     $msg = isset($a_errmsg[$type]) ? $a_errmsg[$type] : $a_errmsg['default'];
 
-    if($type=='page')
-    {
+    if($type=='page') {
         $msg = '檔案資料『" . $ext . "』不存在';
     }
     
@@ -24,8 +21,7 @@ function error_message($type='', $ext='')
 }
 
 
-function pagination($total_page, $page, $nump=10)
-{
+function pagination($total_page, $page, $nump=10) {
     // ------ 分頁處理開始 -------------------------------------
     // 處理分頁之超連結：上一頁、下一頁、第一首、最後頁
     $lnk_pageprev = '?nump='.$nump.'&page=' . (($page==1)?(1):($page-1));

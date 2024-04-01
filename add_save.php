@@ -1,17 +1,15 @@
 <?php
-/* db_pdo v1.0  @Shinjia  #2022/07/28 */
-
 include 'config.php';
 include 'utility.php';
 
 // 接收傳入變數
-$usercode = isset($_POST['usercode']) ? $_POST['usercode'] : '';
-$username = isset($_POST['username']) ? $_POST['username'] : '';
-$address  = isset($_POST['address'])  ? $_POST['address']  : '';
-$birthday = isset($_POST['birthday']) ? $_POST['birthday'] : '';
-$height   = isset($_POST['height'])   ? $_POST['height']   : '';
-$weight   = isset($_POST['weight'])   ? $_POST['weight']   : '';
-$remark   = isset($_POST['remark'])   ? $_POST['remark']   : '';
+$usercode = $_POST['usercode'] ?? '';
+$username = $_POST['username'] ?? '';
+$address  = $_POST['address']  ?? '';
+$birthday = $_POST['birthday'] ?? '';
+$height   = $_POST['height']   ?? '';
+$weight   = $_POST['weight']   ?? '';
+$remark   = $_POST['remark']   ?? '';
 
 // 連接資料庫
 $pdo = db_open();

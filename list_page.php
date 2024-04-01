@@ -1,17 +1,15 @@
 <?php
-/* db_pdo v1.0  @Shinjia  #2022/07/17 */
-
 // 含分頁之資料列表
 
 include 'config.php';
 include 'utility.php';
 
 // 頁碼參數
-$page = isset($_GET['page']) ? $_GET['page'] : 1;   // 目前的頁碼
-$nump = isset($_GET['nump']) ? $_GET['nump'] : 10;   // 每頁的筆數
+$page = $_GET['page'] ?? 1;   // 目前的頁碼
+$nump = $_GET['nump'] ?? 10;   // 每頁的筆數
 
 // 增加傳入 uid，把該筆記錄高亮標示
-$uid_highlight = isset($_GET['uid']) ? $_GET['uid'] : '';
+$uid_highlight = $_GET['uid'] ?? '';
 
 // 參數安全檢查
 $page = intval($page);  // 轉為整數

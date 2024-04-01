@@ -1,5 +1,4 @@
 <?php
-/* db_pdo v1.0  @Shinjia  #2022/07/17 */
 
 function pagemake($content='', $head='') {  
     $html = <<< HEREDOC

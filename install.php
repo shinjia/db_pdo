@@ -1,5 +1,4 @@
 <?php
-/* db_pdo v1.0  @Shinjia  #2022/07/17 */
 
 include 'config.php';
 
@@ -19,12 +18,11 @@ CREATE TABLE person (
 )';
 
 
-$op = isset($_GET['op']) ? $_GET['op'] : 'HOME';
+$op = $_GET['op'] ?? 'HOME';
 
 
 $msg = '';
-switch($op)
-{
+switch($op) {
     case 'CREATE_TABLE' :
         $msg .= '資料表『' . $table_name . '』';
 

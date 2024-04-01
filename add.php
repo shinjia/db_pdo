@@ -1,5 +1,4 @@
 <?php
-/* db_pdo v1.0  @Shinjia  #2022/07/17 */
 
 $html = <<< HEREDOC
 <h2 align="center">新增資料區</h2>

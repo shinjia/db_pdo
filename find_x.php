@@ -1,10 +1,8 @@
 <?php
-/* db_pdo v1.0  @Shinjia  #2022/07/17 */
-
 include 'config.php';
 include 'utility.php';
 
-$key = isset($_POST['key']) ? $_POST['key'] : '';
+$key = $_POST['key'] ?? '';
 
 // 網頁內容預設
 $ihc_content = '';
